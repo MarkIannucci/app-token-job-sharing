@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "$foo"
+          echo "foo before we change it using the env command: $foo"
           echo "foo=baz" >> "$GITHUB_ENV"
-          echo "$foo"
+          echo "foo after we change it using the env command -- note it is still what it was: $foo"
+          echo "foo if we reference it in the env object: ${{env.foo}}"
