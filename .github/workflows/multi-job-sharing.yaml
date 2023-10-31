@@ -16,4 +16,9 @@ jobs:
       - run: |
           echo "foo if we reference it in a second step: $foo"
           echo "foo if we reference it using the env object in a second step: ${{env.foo}}"
-
+  second-job:
+    runs-on: ubuntu-latest
+    needs: [first-job]
+    steps:
+      - run: |
+          echo "foo in job two after it was updated by job one: $foo"
