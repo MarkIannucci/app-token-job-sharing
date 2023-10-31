@@ -1,0 +1,14 @@
+on:
+  push:
+
+env:
+  foo: bar
+  
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "$foo"
+          echo "foo=baz" >> "$GITHUB_ENV"
+          echo "$(foo)"
