@@ -13,3 +13,7 @@ jobs:
           echo "foo=baz" >> "$GITHUB_ENV"
           echo "foo after we change it using the env command -- note it is still what it was: $foo"
           echo "foo if we reference it in the env object: ${{env.foo}}"
+      - run: |
+          echo "foo if we reference it in a second step: $foo"
+          echo "foo if we reference it using the env object in a second step: ${{env.foo}}"
+
